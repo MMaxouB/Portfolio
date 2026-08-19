@@ -60,6 +60,7 @@ const projects: Project[] = [
     technologies: ["TypeScript", "Next.js", "Python", "FastAPI", "PostgreSQL", "Docker"],
     featured: true,
     order: 1,
+    githubUrl: "https://github.com/PARTH-CODE2012/zipzop-backend",
     contribution: [
       "Designed the microservices backend to process heavy video jobs in the background.",
       "Built the AI dispatch system that sends each request to the right LLM or generation model.",
@@ -96,54 +97,77 @@ const projects: Project[] = [
   {
     slug: "obsidian-system",
     title: "Obsidian Workflow System",
-    shortDescription: "A personal automation tool that syncs Discord bots with Obsidian notes.",
-    year: 2024,
+    shortDescription: "A personal automation tool that syncs Discord bots and Web-App with Obsidian notes.",
+    year: 2026,
     status: "completed",
     type: "public",
     category: ["Automation", "Web"],
-    role: "Developer",
-    technologies: ["TypeScript", "Discord.js", "Obsidian API"],
-    featured: false,
+    role: "Creator",
+    technologies: ["TypeScript", "Discord.js", "Obsidian API", "Node.js", "FastAPI"],
+    featured: true,
     order: 3,
+    githubUrl: "https://github.com/MMaxouB/web-app-workplace",
     contribution: [
       "Built a Discord bot that reads specific commands and adds them straight to daily Obsidian notes.",
-      "Automated task extraction using regex and simple NLP."
+      "Automated task extraction using regex and simple NLP.",
+      "Created a web dashboard to manage and visualize the workflow."
     ]
   },
   {
-    slug: "enterprise-security-audit",
-    title: "Enterprise Network Audit",
-    shortDescription: "Comprehensive penetration testing and architecture review.",
-    year: 2025,
-    status: "completed",
-    type: "nda",
+    slug: "ctf-penetration-labs",
+    title: "CTF & Penetration Testing Platforms",
+    shortDescription: "Ongoing participation in capture-the-flag competitions and penetration testing labs on HackTheBox and TryHackMe.",
+    year: 2024,
+    status: "in-progress",
+    type: "public",
     category: ["Security"],
-    role: "Security Consultant",
-    technologies: ["Linux", "Nmap", "Metasploit", "Burp Suite", "Active Directory"],
+    role: "Penetration Tester & CTF Competitor",
+    technologies: ["Linux", "Bash", "Nmap", "Burp Suite", "Metasploit", "Python", "SQL"],
     featured: true,
     order: 4,
-    confidentialityNote: "The full details, target names and specific vulnerabilities are confidential under NDA. This page only describes the general methodology.",
     contribution: [
-      "Led the external penetration test on the corporate web perimeter.",
-      "Mapped the internal Active Directory structure to find privilege escalation paths.",
-      "Gave the client's engineering team clear steps to fix the architecture."
+      "Completed 20+ machines on HackTheBox across difficulty levels (Easy, Medium, Hard).",
+      "Participated in HackTheBox CTF competitions, focusing on web exploitation and privilege escalation.",
+      "Mastered TryHackMe learning paths: Complete Beginner, Web Security, Linux Privilege Escalation and more.",
+      "Developed practical skills in OWASP Top 10 vulnerabilities, SQL injection, XSS, and reverse shells.",
+      "My main area is network security, but I also enjoy web application security and cryptography challenges."
     ],
-    architectureSummary: "In general terms, the engagement involved pivoting through compromised edge nodes to reach separate internal VLANs.",
-    results: "Found 3 critical vulnerabilities and helped fix them before they could be exploited."
+    technicalChallenges: [
+      "Chaining multiple vulnerabilities to escalate privileges in segmented environments.",
+      "Time management under competitive CTF pressure — solving boxes in contests with live scoreboards.",
+      "Reverse engineering obfuscated applications and binaries to find hidden attack vectors."
+    ],
+    architectureSummary: "CTF labs simulate real-world penetration testing scenarios: initial access via web vulnerabilities or misconfiguration, lateral movement through compromised systems, and finally privilege escalation to achieve full system control.",
+    results: "Developed methodical exploitation techniques and deepened understanding of attack chains in production-like environments."
   },
   {
-    slug: "cyber-tool",
-    title: "Vulnerability Scanner",
-    shortDescription: "Lightweight distributed port and vulnerability scanner.",
-    year: 2024,
-    status: "archived",
+    slug: "templates-web",
+    title: "Templates Web — AI-Resistant Design System",
+    shortDescription: "Catalog of 145+ web architecture templates with an AI-resistant design system built on measurable diversity constraints.",
+    year: 2026,
+    status: "in-progress",
     type: "open-source",
-    category: ["Security", "Research"],
-    role: "Core Contributor",
-    technologies: ["Go", "Bash"],
-    featured: false,
+    category: ["Web"],
+    role: "Creator",
+    technologies: ["HTML", "CSS", "JavaScript", "Node.js"],
+    featured: true,
     order: 5,
-    githubUrl: "https://github.com",
+    githubUrl: "https://github.com/MMaxouB/templates_web",
+    contribution: [
+      "Designed a three-layer separation: structure (composition), artistic direction (typography, material, geometry), and palette (colors only).",
+      "Defined a Design DNA schema on nine independent axes with measurable consequences, enforced by automated tools.",
+      "Built constraint validation: 25+ creative constraints (no-cards, asymmetry, dense, editorial, etc.) verified by screenshot and CSS analysis.",
+      "Implemented anti-LLM budget system: reflexes (centered-axial, soft-rounded, hero, etc.) are taxed rather than banned, forcing deliberate trade-offs.",
+      "Created measurement tools: `dna-report.js` (coverage, collisions, suggestions), `check-constraints.js` (verification), `perceptual-diff.js` (visual comparison invariant to palette)."
+    ],
+    technicalChallenges: [
+      "Preventing AI-generated sameness: 145 templates converge toward the same design without structural constraints.",
+      "Separating concerns: making layer independence absolute—a palette changes only colors, a direction changes only form, structure carries only composition.",
+      "Measuring diversity: building tools to detect when metadata claims divergence but pixels show collision.",
+      "Zero dependencies: all 145 templates run by opening `index.html` in a browser—no build, no npm, no CDN."
+    ],
+    architectureSummary: "Three independent layers: 145 unique structures (vitrine, boutique, portfolio, blog, app, etc.) × ~150 artistic directions (minimalist, brutalist, editorial, cyberpunk, etc.) × ~120 color palettes. Each template declares its design DNA across composition, density, typography system, geometry, surface, navigation, media treatment, interaction, and motion. Constraints are not decorative—they carry measurable consequences enforced by tests.",
+    results: "Delivered 43 templates across 12 families, measured diversity across 66 pairwise comparisons, achieved zero AI-generated sameness (84% of initial lot reduced to 14% centered composition through structural redesign)."
   }
 ];
 
