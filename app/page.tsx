@@ -21,7 +21,7 @@ export default function Home() {
         label="Selected work"
         title="A few systems worth explaining."
         annotation={`${featured.length} of ${getProjects().length} projects`}
-        description="Each plate carries the project's architecture as a figure. The full register is one click away."
+        description="Each plate shows the project's architecture as a simple figure. See the full list with one click."
         href="/projects"
         hrefLabel="All projects"
       >
@@ -33,7 +33,7 @@ export default function Home() {
         label="Expertise"
         title="Measured, not claimed."
         annotation={`${SKILLS.length} skills tracked`}
-        description="Levels are a personal assessment of practical depth. Every one of them is tied to a project you can open."
+        description="These levels are my own assessment of practical skill. Each one links to a real project you can open."
         href="/expertise"
         hrefLabel="Full breakdown"
       >

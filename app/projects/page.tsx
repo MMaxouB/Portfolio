@@ -5,7 +5,7 @@ import { ProjectList } from "@/components/projects/ProjectList";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "A selection of open source, public, and private projects showcasing software engineering and security architecture.",
+    "A selection of open source, public and private projects in software engineering and security.",
 };
 
 export default function ProjectsPage() {

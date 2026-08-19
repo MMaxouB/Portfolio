@@ -75,8 +75,8 @@ export function Hero() {
             className="mt-8 max-w-xl text-lg leading-relaxed text-text-secondary"
             {...fade(0.66)}
           >
-            Backend architecture, automation pipelines and AI systems — designed
-            by someone who thinks about how they break before someone else does.
+            I build backend systems, automation pipelines and AI tools — and I
+            always think about how they might break.
           </motion.p>
 
           <motion.div

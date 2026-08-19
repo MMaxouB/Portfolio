@@ -21,7 +21,7 @@ export default function OpengraphImage() {
           justifyContent: "space-between",
           background: "#08090B",
           backgroundImage:
-            "radial-gradient(circle at 78% 22%, rgba(120,213,227,0.16) 0%, transparent 55%)",
+            "radial-gradient(circle at 78% 22%, rgba(106,114,232,0.20) 0%, transparent 55%)",
           padding: 80,
           fontFamily: "sans-serif",
         }}
@@ -32,7 +32,7 @@ export default function OpengraphImage() {
               width: 10,
               height: 10,
               borderRadius: 999,
-              background: "#78d5e3",
+              background: "#6a72e8",
             }}
           />
           <div
@@ -77,7 +77,7 @@ export default function OpengraphImage() {
             fontSize: 24,
           }}
         >
-          <span style={{ color: "#78d5e3" }}>$</span>
+          <span style={{ color: "#6a72e8" }}>$</span>
           <span>type &quot;help&quot; to explore</span>
         </div>
       </div>

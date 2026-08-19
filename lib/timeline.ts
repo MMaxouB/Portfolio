@@ -12,7 +12,7 @@ export const TIMELINE: TimelineEvent[] = [
     year: "2024",
     title: "First Python projects & scripting",
     description:
-      "Wrote the first real automation scripts — file processors, API wrappers, CLI utilities. Python became the primary working language.",
+      "Wrote my first real automation scripts: file processors, API wrappers and CLI tools. Python became my main language.",
     area: "learning",
     technologies: ["Python", "Bash"],
   },
@@ -20,7 +20,7 @@ export const TIMELINE: TimelineEvent[] = [
     year: "2024",
     title: "Linux as a daily driver",
     description:
-      "Committed to Linux full-time. Learned process management, shell scripting, permissions and system internals through daily use.",
+      "Started using Linux full-time. Learned process management, shell scripting, permissions and system internals through daily use.",
     area: "security",
     technologies: ["Linux", "Bash"],
   },
@@ -28,7 +28,7 @@ export const TIMELINE: TimelineEvent[] = [
     year: "2024",
     title: "Personal tooling — Vulnerability Scanner",
     description:
-      "Built a lightweight distributed port and service scanner to learn Go concurrency and network fundamentals.",
+      "Built a lightweight, distributed port scanner to learn Go concurrency and network basics.",
     area: "security",
     projectSlugs: ["cyber-tool"],
     technologies: ["Go", "Bash"],
@@ -37,7 +37,7 @@ export const TIMELINE: TimelineEvent[] = [
     year: "2025",
     title: "CTFs and web security fundamentals",
     description:
-      "Competed in multiple Capture the Flag events. Strengthened understanding of OWASP Top 10, authentication flaws and privilege escalation.",
+      "Took part in several Capture the Flag events. Learned more about the OWASP Top 10, authentication flaws and privilege escalation.",
     area: "security",
     technologies: ["Burp Suite", "Nmap", "Linux"],
   },
@@ -45,7 +45,7 @@ export const TIMELINE: TimelineEvent[] = [
     year: "2025",
     title: "Web development with TypeScript",
     description:
-      "Shifted into full-stack web work. Adopted TypeScript and Next.js. Built the Obsidian workflow automation system — first production-grade Node project.",
+      "Moved into full-stack web development. Started using TypeScript and Next.js. Built the Obsidian workflow automation system, my first production-grade Node project.",
     area: "software",
     projectSlugs: ["obsidian-system"],
     technologies: ["TypeScript", "Next.js", "Discord.js"],
@@ -54,7 +54,7 @@ export const TIMELINE: TimelineEvent[] = [
     year: "2025",
     title: "First professional security engagement",
     description:
-      "Conducted an enterprise network penetration test under NDA. External perimeter testing, AD enumeration, and remediation advisory.",
+      "Carried out an enterprise network penetration test under NDA: external perimeter testing, Active Directory enumeration, and advice on fixes.",
     area: "security",
     projectSlugs: ["enterprise-security-audit"],
     technologies: ["Metasploit", "Active Directory", "Nmap"],
@@ -63,7 +63,7 @@ export const TIMELINE: TimelineEvent[] = [
     year: "2026",
     title: "AI agent systems & orchestration",
     description:
-      "Built a multi-agent routing system capable of dispatching tasks to parallel LLM agents and selecting the best output. First real work at the intersection of systems design and AI.",
+      "Built a multi-agent routing system that sends tasks to several LLM agents in parallel and picks the best result. My first real project combining systems design and AI.",
     area: "ai",
     projectSlugs: ["agent-orchestrator"],
     technologies: ["Python", "LangChain", "Redis", "Docker"],
@@ -72,7 +72,7 @@ export const TIMELINE: TimelineEvent[] = [
     year: "2026",
     title: "Software architecture & SaaS development",
     description:
-      "Taking on lead engineering roles in SaaS products. Designing microservice backends, async pipelines and AI-augmented media workflows.",
+      "Taking on lead engineering roles in SaaS products. Designing microservice backends, async pipelines and AI-powered media workflows.",
     area: "software",
     projectSlugs: ["ai-video-editor"],
     technologies: ["TypeScript", "Next.js", "Python", "FastAPI", "PostgreSQL"],

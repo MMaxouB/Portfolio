@@ -20,7 +20,7 @@ export const SKILLS: Skill[] = [
     category: "language",
     score: 88,
     levelLabel: "Advanced",
-    description: "Primary scripting and backend language. Used for API servers, automation pipelines and AI integrations.",
+    description: "My main language for scripting and backend work. I use it for API servers, automation pipelines and AI integrations.",
     projectSlugs: ["agent-orchestrator", "enterprise-security-audit"],
   },
   {
@@ -29,7 +29,7 @@ export const SKILLS: Skill[] = [
     category: "language",
     score: 82,
     levelLabel: "Advanced",
-    description: "Language of choice for full-stack web work. All Next.js projects run strict TypeScript.",
+    description: "My preferred language for full-stack web work. All my Next.js projects run strict TypeScript.",
     projectSlugs: ["ai-video-editor", "obsidian-system"],
   },
   {
@@ -38,7 +38,7 @@ export const SKILLS: Skill[] = [
     category: "language",
     score: 80,
     levelLabel: "Advanced",
-    description: "Solid foundation underlying TypeScript work; comfortable with runtime quirks and async patterns.",
+    description: "A solid base under my TypeScript work. Comfortable with runtime quirks and async patterns.",
     projectSlugs: ["obsidian-system"],
   },
   {
@@ -67,7 +67,7 @@ export const SKILLS: Skill[] = [
     category: "engineering",
     score: 76,
     levelLabel: "Proficient",
-    description: "Designing systems with clear boundaries, data flow and failure modes in mind.",
+    description: "I design systems with clear boundaries, and think carefully about data flow and failure modes.",
     projectSlugs: ["ai-video-editor", "agent-orchestrator"],
   },
   {
@@ -96,7 +96,7 @@ export const SKILLS: Skill[] = [
     category: "ai",
     score: 80,
     levelLabel: "Proficient",
-    description: "Integrating LLM APIs into products — prompt engineering, latency control, cost management.",
+    description: "Adding LLM APIs to real products: prompt engineering, latency control and cost management.",
     projectSlugs: ["ai-video-editor", "agent-orchestrator"],
   },
   {
@@ -114,7 +114,7 @@ export const SKILLS: Skill[] = [
     category: "ai",
     score: 74,
     levelLabel: "Proficient",
-    description: "Applied use of language models for summarisation, extraction, classification and generation.",
+    description: "Using language models in practice, for summarising, extracting, classifying and generating text.",
     projectSlugs: ["ai-video-editor", "agent-orchestrator"],
   },
 
@@ -134,7 +134,7 @@ export const SKILLS: Skill[] = [
     category: "security",
     score: 68,
     levelLabel: "Developing",
-    description: "Active directory enumeration, web app testing, CTF-grounded methodology.",
+    description: "Active Directory enumeration and web app testing, using methods learned from CTFs.",
     projectSlugs: ["enterprise-security-audit", "cyber-tool"],
   },
   {
@@ -143,7 +143,7 @@ export const SKILLS: Skill[] = [
     category: "security",
     score: 80,
     levelLabel: "Advanced",
-    description: "Daily driver OS. Comfortable with the CLI, process management, permissions and shell scripting.",
+    description: "My daily operating system. Comfortable with the command line, process management, permissions and shell scripting.",
     projectSlugs: ["enterprise-security-audit", "cyber-tool"],
   },
   {
@@ -152,7 +152,7 @@ export const SKILLS: Skill[] = [
     category: "security",
     score: 65,
     levelLabel: "Developing",
-    description: "Passive reconnaissance, footprinting and open-source intelligence gathering workflows.",
+    description: "Passive reconnaissance and footprinting, using open-source intelligence (OSINT).",
     projectSlugs: ["enterprise-security-audit"],
   },
 ];

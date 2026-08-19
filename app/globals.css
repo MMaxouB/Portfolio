@@ -4,9 +4,10 @@
    Design tokens
    ---------------------------------------------------------------------------
    Surfaces and text follow PORTFOLIO_SPEC §1.2 verbatim. The accent is the one
-   free variable the spec leaves open ("froide et discrète") — it is a cold ink
-   cyan, and the rule that governs it is: it is INK, never PAINT. Hairlines,
-   marks, carets, traces. No filled accent surfaces anywhere in the UI.
+   free variable the spec leaves open — a cold, deep blue-violet (per client
+   direction, 2026-08-19). The rule that governs it is unchanged: it is INK,
+   never PAINT. Hairlines, marks, carets, traces. No filled accent surfaces
+   anywhere in the UI.
    =========================================================================== */
 
 :root {
@@ -20,10 +21,10 @@
   --color-text-secondary: #a1a7b0;
   --color-text-muted: #6f7681;
 
-  /* Ink cyan — one family, three stops, no second hue (§1.2 forbids rainbows) */
-  --color-accent: #78d5e3;
-  --color-accent-dim: #3e6b75;
-  --color-accent-wash: rgba(120, 213, 227, 0.09);
+  /* Deep blue-violet ink — one family, three stops, no second hue (§1.2) */
+  --color-accent: #6a72e8;
+  --color-accent-dim: #363b70;
+  --color-accent-wash: rgba(106, 114, 232, 0.12);
 
   /* Two radii for the whole site (§1.5) — plates and controls. Dots use full. */
   --radius-plate: 10px;
@@ -65,9 +66,8 @@ body {
 }
 
 /* ---------------------------------------------------------------------------
-   Depth layer (§1.3) — ruled paper rather than glowing blobs.
-   Three stacked passes: horizontal rules at a fixed pitch, sparse vertical
-   registration ticks, and one directional wash. Each is near-invisible alone.
+   Depth layer (§1.3) — ledger texture, used locally behind schematic figures
+   (ProjectCard, project detail, /cyber) so a figure reads as sitting on paper.
    --------------------------------------------------------------------------- */
 
 .paper-rules {
@@ -77,25 +77,6 @@ body {
     rgba(255, 255, 255, 0.022) 1px,
     transparent 1px,
     transparent var(--rule-pitch)
-  );
-}
-
-.paper-ticks {
-  background-image: repeating-linear-gradient(
-    to right,
-    rgba(120, 213, 227, 0.05) 0px,
-    rgba(120, 213, 227, 0.05) 1px,
-    transparent 1px,
-    transparent 160px
-  );
-}
-
-.paper-wash {
-  background-image: linear-gradient(
-    155deg,
-    rgba(120, 213, 227, 0.055) 0%,
-    rgba(120, 213, 227, 0.012) 26%,
-    transparent 52%
   );
 }
 

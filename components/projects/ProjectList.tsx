@@ -29,7 +29,7 @@ export function ProjectList({ allProjects, featuredProjects }: ProjectListProps)
           index="01"
           label="Portfolio"
           title="Systems, not screenshots."
-          description="Every entry is a real system with a real constraint. The figure on each plate is its architecture, not a stock image."
+          description="Every project here is a real system with a real constraint. The figure on each plate shows its architecture — not a stock photo."
           className="flex-1"
         />
 

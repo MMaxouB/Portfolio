@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 export const metadata: Metadata = {
   title: "Expertise",
   description:
-    "Skills, proficiency levels and technology areas — grounded in real projects.",
+    "Skills, proficiency levels and technology areas — grounded in real projects, not claims.",
 };
 
 export default function ExpertisePage() {
@@ -19,7 +19,7 @@ export default function ExpertisePage() {
         label="Expertise"
         title="Measured, not claimed."
         annotation={`${SKILLS.length} skills · select to inspect`}
-        description="A personal assessment of practical depth across languages, engineering, AI tooling and security. Select any skill to see the projects it is grounded in."
+        description="My own assessment of practical skill across languages, engineering, AI tools and security. Select any skill to see the projects behind it."
         className="mb-20 max-w-3xl"
       />
 

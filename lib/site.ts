@@ -10,17 +10,17 @@ export const SITE = {
   role: "Software Engineer",
   tagline: "Software / Engineering / Security",
   description:
-    "Portfolio of Maxime, Software Engineer building software that matters with a security mindset.",
+    "Portfolio of Maxime, a Software Engineer who builds software with a security mindset.",
 
   /** Canonical origin — required for metadataBase, sitemap and OG images. */
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com",
 
   /** TODO: remplacer par la vraie adresse */
-  email: "hello@example.com",
+  email: "briere.maxime.28@gmail.com",
 
   links: {
     /** TODO: remplacer par le vrai profil */
-    github: "https://github.com/example",
+    github: "https://github.com/MMaxouB",
     /** TODO: remplacer par le vrai profil */
     linkedin: "https://linkedin.com/in/example",
   },

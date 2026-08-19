@@ -71,7 +71,7 @@ export const TERMINAL_COMMANDS: TerminalCommandDef[] = [
       output: [
         "Maxime",
         "Software Engineer with a security mindset.",
-        "Builds backends, automation pipelines and AI systems.",
+        "Builds backend systems, automation pipelines and AI tools.",
       ],
     }),
   },

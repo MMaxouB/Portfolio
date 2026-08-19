@@ -112,8 +112,8 @@ export default function AboutPage() {
           Let&apos;s build something.
         </h2>
         <p className="mb-6 leading-relaxed text-text-secondary">
-          Open to engineering work, security engagements and interesting
-          problems that do not have an obvious answer yet.
+          Open to engineering work, security engagements, and interesting
+          problems with no clear answer yet.
         </p>
         <Link href="/contact" className="inline-block">
           <Button variant="primary">

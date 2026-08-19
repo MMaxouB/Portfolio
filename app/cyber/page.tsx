@@ -10,7 +10,7 @@ import { ProjectFigure } from "@/components/projects/visuals/figures";
 export const metadata: Metadata = {
   title: "Cyber / Lab",
   description:
-    "Security projects, penetration testing, CTF activity and research — a secondary but serious specialisation.",
+    "Security projects, penetration testing, CTF activity and research — a secondary but serious focus.",
 };
 
 /**
@@ -29,7 +29,7 @@ export default function CyberPage() {
         label="Cyber / Lab"
         title="Security as a discipline."
         annotation="Specialisation, not identity"
-        description="Security is a specialisation within a broader software engineering identity — not the other way around. This section documents real engagement work, tooling and continuous practice."
+        description="Security is one specialisation inside a broader software engineering identity, not the other way around. This section covers real engagement work, tools and ongoing practice."
         className="mb-24 max-w-3xl"
       />
 

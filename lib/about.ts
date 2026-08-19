@@ -18,32 +18,32 @@ export interface AboutBlock {
 }
 
 export const ABOUT_INTRO =
-  "I build backends, automation pipelines and AI systems — and I think about how they break before someone else does.";
+  "I build backend systems, automation pipelines and AI tools — and I always think about how they could break.";
 
 export const ABOUT_BLOCKS: AboutBlock[] = [
   {
     label: "Current focus",
     title: "Backend architecture for AI-heavy products",
-    body: "Most of my work sits behind the interface: services that orchestrate models, queue long-running jobs and stay predictable under load. Python and TypeScript, FastAPI and Next.js, with PostgreSQL and Docker underneath.",
+    body: "Most of my work happens behind the interface. I build services that connect AI models, manage long background jobs, and stay reliable under heavy load — using Python, TypeScript, FastAPI, Next.js, PostgreSQL and Docker.",
   },
   {
     label: "What I build",
     title: "Systems that hold up outside the demo",
-    body: "Multi-agent orchestration, asynchronous processing pipelines, workflow automation and internal tooling. I care about the parts that only show up in production — retries, failure modes, cost, observability.",
+    body: "Multi-agent systems, background processing pipelines, workflow automation and internal tools. I care most about the parts that only show up in production: retries, failures, cost and monitoring.",
     points: [
-      "Decoupled services over monoliths that grow by accident",
-      "Explicit data models before clever abstractions",
-      "Security considered at design time, not bolted on after",
+      "Small, separate services instead of one big system that grows out of control",
+      "Clear data models before clever abstractions",
+      "Security planned from the start, not added later",
     ],
   },
   {
     label: "Security",
     title: "A specialisation, not the whole identity",
-    body: "Penetration testing, OWASP Top 10, Active Directory enumeration and Linux privilege escalation — practised on CTF platforms and applied on a real engagement under NDA. It informs how I write software rather than replacing it.",
+    body: "Penetration testing, the OWASP Top 10, Active Directory enumeration and Linux privilege escalation. I practise these skills on CTF platforms, and I have used them in one real engagement under NDA. Security shapes how I write software — it does not replace it.",
   },
   {
     label: "What I am learning",
     title: "Depth over breadth",
-    body: "Distributed systems fundamentals, Go for concurrent tooling, and the operational side of running AI workloads — evaluation, cost control and failure containment.",
+    body: "The fundamentals of distributed systems, Go for concurrent tools, and the practical side of running AI workloads: evaluation, cost control and handling failures.",
   },
 ];

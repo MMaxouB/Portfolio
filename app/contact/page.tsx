@@ -50,7 +50,7 @@ export default function ContactPage() {
         label="Contact"
         title="Let's build something."
         annotation="Remote · France"
-        description="Engineering work, security engagements, or a problem that does not have an obvious answer yet — the fastest route is email."
+        description="Engineering work, security engagements, or a problem with no clear answer yet — email is the fastest way to reach me."
         className="mb-16 max-w-2xl"
       />
 

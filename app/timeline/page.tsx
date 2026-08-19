@@ -20,7 +20,7 @@ export default function TimelinePage() {
         label="Progression"
         title="How it got here."
         annotation={`${years[0]} — ${years[years.length - 1]}`}
-        description="From first scripts to system architecture and security — a record of real milestones rather than a polished résumé."
+        description="From my first scripts to system architecture and security — a record of real milestones, not a polished résumé."
         className="mb-16"
       />
 
