@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import { useRef } from "react";
-import { motion, useInView } from "motion/react";
+import { motion, useInView, useReducedMotion } from "motion/react";
 import {
   TimelineEvent,
   AREA_LABELS,
-  AREA_COLORS,
+  AREA_MARKS,
   AREA_TEXT_COLORS,
 } from "@/lib/timeline";
 
@@ -19,74 +19,74 @@ interface TimelineItemProps {
 export function TimelineItem({ event, index, isLast }: TimelineItemProps) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
-
-  const dotColor = AREA_COLORS[event.area];
-  const textColor = AREA_TEXT_COLORS[event.area];
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, x: -16 }}
-      animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.07, ease: [0.16, 1, 0.3, 1] }}
-      className="relative grid grid-cols-[auto_1fr] gap-x-6"
+      initial={shouldReduceMotion ? false : { opacity: 0 }}
+      animate={inView ? { opacity: 1 } : undefined}
+      transition={{ duration: 0.5, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
+      className="relative grid grid-cols-[auto_1fr] gap-x-6 md:grid-cols-[64px_auto_1fr] md:gap-x-8"
     >
-      {/* Left column: dot + vertical line */}
+      {/* Year gutter, aligned like a drawing's revision column */}
+      <span className="title-block hidden pt-0.5 tabular-nums md:block">
+        {event.year}
+      </span>
+
+      {/* Mark + connector */}
       <div className="flex flex-col items-center">
-        {/* Dot */}
-        <div className={`mt-1.5 w-2.5 h-2.5 rounded-full shrink-0 ring-4 ring-bg-primary ${dotColor}`} />
-        {/* Connector line */}
+        <span
+          className={`mt-1 h-2 w-2 shrink-0 ${AREA_MARKS[event.area]}`}
+          aria-hidden="true"
+        />
         {!isLast && (
-          <div className="mt-2 flex-1 w-px bg-border-subtle" />
+          <motion.span
+            aria-hidden="true"
+            initial={shouldReduceMotion ? false : { scaleY: 0 }}
+            animate={inView ? { scaleY: 1 } : undefined}
+            transition={{ duration: 0.7, delay: index * 0.05 + 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="-mb-12 mt-2 w-px flex-1 origin-top bg-border-subtle"
+          />
         )}
       </div>
 
-      {/* Right column: content */}
-      <div className={`pb-${isLast ? "0" : "12"} flex flex-col gap-3 pb-12 last:pb-0`}>
-        {/* Year + area badge */}
-        <div className="flex items-center gap-3 flex-wrap">
-          <span className="text-xs font-mono font-semibold text-text-muted tracking-widest">
-            {event.year}
-          </span>
-          <span className={`text-xs font-semibold tracking-wide uppercase ${textColor}`}>
+      {/* Content */}
+      <div className="flex flex-col gap-3 pb-1">
+        <div className="flex flex-wrap items-center gap-3">
+          <span className="title-block tabular-nums md:hidden">{event.year}</span>
+          <span className={`title-block ${AREA_TEXT_COLORS[event.area]}`}>
             {AREA_LABELS[event.area]}
           </span>
         </div>
 
-        {/* Title */}
-        <h3 className="text-base font-semibold text-text-primary leading-snug">
+        <h3 className="text-base font-semibold leading-snug text-text-primary">
           {event.title}
         </h3>
 
-        {/* Description */}
-        <p className="text-sm text-text-secondary leading-relaxed">
+        <p className="max-w-2xl text-sm leading-relaxed text-text-secondary">
           {event.description}
         </p>
 
-        {/* Technologies */}
         {event.technologies && event.technologies.length > 0 && (
-          <div className="flex flex-wrap gap-1.5 mt-1">
-            {event.technologies.map((tech) => (
-              <span
-                key={tech}
-                className="text-[11px] font-mono text-text-muted border border-border-subtle px-2 py-0.5 rounded"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
+          <p className="title-block mt-1 normal-case tracking-[0.08em]">
+            {event.technologies.join(" · ")}
+          </p>
         )}
 
-        {/* Linked projects */}
         {event.projectSlugs && event.projectSlugs.length > 0 && (
-          <div className="flex flex-wrap gap-2 mt-1">
+          <div className="mt-2 flex flex-wrap gap-x-6 gap-y-2">
             {event.projectSlugs.map((slug) => (
               <Link
                 key={slug}
                 href={`/projects/${slug}`}
-                className="text-[11px] font-mono text-accent/80 border border-accent/20 bg-accent/5 px-2 py-0.5 rounded hover:border-accent/50 hover:text-accent transition-colors"
+                className="group inline-flex items-center gap-3 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
-                ↗ {slug}
+                <span className="title-block text-accent">{slug}</span>
+                <span
+                  aria-hidden="true"
+                  className="h-px w-4 bg-accent-dim transition-all duration-500 ease-out group-hover:w-8 group-hover:bg-accent"
+                />
               </Link>
             ))}
           </div>

@@ -29,7 +29,7 @@ export function CommandPalette() {
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
 
-  useDialog(paletteOpen, panelRef);
+  useDialog(paletteOpen, panelRef, closePalette);
 
   // Reset on open
   useEffect(() => {
@@ -158,7 +158,8 @@ export function CommandPalette() {
                 }}
                 onKeyDown={onKeyDown}
                 placeholder="Search pages, projects, technologies…"
-                className="h-12 flex-1 bg-transparent text-sm text-text-primary outline-none placeholder:text-text-muted"
+                // text-base below the md breakpoint keeps iOS Safari from zooming on focus
+                className="h-12 flex-1 bg-transparent text-base text-text-primary outline-none placeholder:text-text-muted md:text-sm"
                 autoComplete="off"
                 spellCheck={false}
                 role="combobox"

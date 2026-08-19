@@ -1,20 +1,42 @@
+"use client";
+
 import { Skill } from "@/lib/skills";
 import { SkillBar } from "./SkillBar";
 
 interface SkillGroupProps {
+  index: string;
   label: string;
   skills: Skill[];
+  activeSlug: string | null;
+  onSelect: (slug: string) => void;
 }
 
-export function SkillGroup({ label, skills }: SkillGroupProps) {
+export function SkillGroup({
+  index,
+  label,
+  skills,
+  activeSlug,
+  onSelect,
+}: SkillGroupProps) {
   return (
-    <div className="flex flex-col gap-6">
-      <h3 className="text-xs font-semibold text-text-muted uppercase tracking-[0.15em]">
-        {label}
-      </h3>
-      <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-5">
+      <div className="flex items-center gap-3">
+        <span className="title-block text-accent tabular-nums">{index}</span>
+        <span className="title-block">{label}</span>
+        <span className="h-px flex-1 bg-border-subtle" aria-hidden="true" />
+        <span className="title-block tabular-nums">
+          {String(skills.length).padStart(2, "0")}
+        </span>
+      </div>
+
+      <div className="flex flex-col gap-4">
         {skills.map((skill) => (
-          <SkillBar key={skill.slug} skill={skill} />
+          <SkillBar
+            key={skill.slug}
+            skill={skill}
+            isActive={activeSlug === skill.slug}
+            onSelect={onSelect}
+          />
         ))}
       </div>
     </div>

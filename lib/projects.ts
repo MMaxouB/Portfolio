@@ -1,6 +1,22 @@
 export type ProjectPrivacy = "open-source" | "public" | "private" | "nda";
 export type ProjectStatus = "completed" | "in-progress" | "archived" | "in-development";
 
+/**
+ * Closed tag vocabulary (PORTFOLIO_SPEC §5.6): tags describe the *nature* of a
+ * project, never its stack. Open Source / Private / NDA are not listed here —
+ * they come from `type` and are rendered separately, so a tag never repeats it.
+ */
+export const PROJECT_TAGS = [
+  "SaaS",
+  "AI",
+  "Web",
+  "Automation",
+  "Security",
+  "Research",
+] as const;
+
+export type ProjectTag = (typeof PROJECT_TAGS)[number];
+
 export interface Project {
   slug: string;
   title: string;
@@ -8,7 +24,7 @@ export interface Project {
   year: number;
   status: ProjectStatus;
   type: ProjectPrivacy;
-  category: string[];
+  category: ProjectTag[];
   role: string;
   technologies: string[];
   featured: boolean;
@@ -39,7 +55,7 @@ const projects: Project[] = [
     year: 2026,
     status: "in-development",
     type: "private",
-    category: ["AI", "SaaS", "Video"],
+    category: ["AI", "SaaS"],
     role: "Lead Backend Engineer",
     technologies: ["TypeScript", "Next.js", "Python", "FastAPI", "PostgreSQL", "Docker"],
     featured: true,
@@ -62,7 +78,7 @@ const projects: Project[] = [
     year: 2025,
     status: "completed",
     type: "open-source",
-    category: ["AI", "System", "Open Source"],
+    category: ["AI", "Automation"],
     role: "Creator",
     technologies: ["Python", "LangChain", "Docker", "Redis"],
     featured: true,
@@ -84,7 +100,7 @@ const projects: Project[] = [
     year: 2024,
     status: "completed",
     type: "public",
-    category: ["Automation", "Productivity"],
+    category: ["Automation", "Web"],
     role: "Developer",
     technologies: ["TypeScript", "Discord.js", "Obsidian API"],
     featured: false,
@@ -101,7 +117,7 @@ const projects: Project[] = [
     year: 2025,
     status: "completed",
     type: "nda",
-    category: ["Security", "Network", "Consulting"],
+    category: ["Security"],
     role: "Security Consultant",
     technologies: ["Linux", "Nmap", "Metasploit", "Burp Suite", "Active Directory"],
     featured: true,
@@ -122,7 +138,7 @@ const projects: Project[] = [
     year: 2024,
     status: "archived",
     type: "open-source",
-    category: ["Security", "CLI"],
+    category: ["Security", "Research"],
     role: "Core Contributor",
     technologies: ["Go", "Bash"],
     featured: false,
@@ -132,7 +148,8 @@ const projects: Project[] = [
 ];
 
 export function getProjects(): Project[] {
-  return projects.sort((a, b) => a.order - b.order);
+  // Copy first — sort() mutates, and this array is shared module state.
+  return [...projects].sort((a, b) => a.order - b.order);
 }
 
 export function getFeaturedProjects(): Project[] {

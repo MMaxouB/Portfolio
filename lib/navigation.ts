@@ -1,3 +1,5 @@
+import { SITE } from "./site";
+
 export interface NavItem {
   label: string;
   href: string;
@@ -10,10 +12,18 @@ export const MAIN_NAV: NavItem[] = [
   { label: "About", href: "/about" },
 ];
 
+/** Every page the site owns, in navigation order — used by `ls` and the sitemap. */
+export const ALL_ROUTES: string[] = [
+  "/",
+  ...MAIN_NAV.map((item) => item.href),
+  "/cyber",
+  "/contact",
+];
+
 export const SOCIAL_NAV: NavItem[] = [
-  { label: "GitHub", href: "https://github.com" },
-  { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "Email", href: "mailto:email@example.com" },
+  { label: "GitHub", href: SITE.links.github },
+  { label: "LinkedIn", href: SITE.links.linkedin },
+  { label: "Email", href: `mailto:${SITE.email}` },
 ];
 
 /**

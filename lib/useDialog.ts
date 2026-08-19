@@ -55,7 +55,8 @@ function unlockScroll() {
 
 export function useDialog(
   open: boolean,
-  containerRef: RefObject<HTMLElement | null>
+  containerRef: RefObject<HTMLElement | null>,
+  onClose?: () => void
 ) {
   // Lock page scroll while the overlay is up.
   useEffect(() => {
@@ -74,11 +75,16 @@ export function useDialog(
     };
   }, [open]);
 
-  // Keep Tab inside the dialog.
+  // Escape closes, and Tab stays inside the dialog.
   useEffect(() => {
     if (!open) return;
 
     function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape" && onClose) {
+        event.preventDefault();
+        onClose();
+        return;
+      }
       if (event.key !== "Tab") return;
       // Content inside the dialog may claim Tab for itself (terminal completion).
       if (event.defaultPrevented) return;
@@ -109,5 +115,5 @@ export function useDialog(
 
     document.addEventListener("keydown", onKeyDown);
     return () => document.removeEventListener("keydown", onKeyDown);
-  }, [open, containerRef]);
+  }, [open, containerRef, onClose]);
 }

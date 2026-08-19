@@ -7,7 +7,7 @@
  * intent, resolved by the caller through the injected context.
  */
 
-import { MAIN_NAV, getSocialHref } from "@/lib/navigation";
+import { ALL_ROUTES, getSocialHref } from "@/lib/navigation";
 import { getProjects } from "@/lib/projects";
 
 export type TerminalOutputKind = "output" | "error";
@@ -41,9 +41,6 @@ export interface TerminalCommandDef {
   hidden?: boolean;
   run: (ctx: TerminalContext) => TerminalResult | void;
 }
-
-/** Routes reachable from the terminal, used by `ls` and the navigation commands. */
-const ROUTES = ["/", ...MAIN_NAV.map((item) => item.href), "/cyber", "/contact"];
 
 /** Build a command that just navigates and reports where it went. */
 function navigateTo(
@@ -81,7 +78,7 @@ export const TERMINAL_COMMANDS: TerminalCommandDef[] = [
   {
     cmd: "ls",
     description: "List the pages of this site",
-    run: () => ({ output: ROUTES.join("   ") }),
+    run: () => ({ output: ALL_ROUTES.join("   ") }),
   },
   {
     cmd: "open",

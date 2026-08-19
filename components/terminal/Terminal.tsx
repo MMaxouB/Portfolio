@@ -139,7 +139,7 @@ export function Terminal() {
   const inputRef = useRef<HTMLInputElement>(null);
   const outputRef = useRef<HTMLDivElement>(null);
 
-  useDialog(terminalOpen, panelRef);
+  useDialog(terminalOpen, panelRef, closeTerminal);
 
   // Fresh session on every open; history survives so ↑ still works.
   useEffect(() => {
@@ -358,7 +358,7 @@ export function Terminal() {
                   dispatch({ type: "SET_INPUT", value: event.target.value })
                 }
                 onKeyDown={handleKeyDown}
-                className="flex-1 bg-transparent text-text-primary caret-accent outline-none placeholder:text-text-muted"
+                className="flex-1 bg-transparent text-base text-text-primary caret-accent outline-none placeholder:text-text-muted md:text-sm"
                 placeholder="type a command…"
                 autoCapitalize="off"
                 autoComplete="off"

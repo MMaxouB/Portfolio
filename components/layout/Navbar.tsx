@@ -1,31 +1,49 @@
 import Link from "next/link";
 import { MAIN_NAV } from "@/lib/navigation";
+import { SITE } from "@/lib/site";
 import { MobileMenu } from "./MobileMenu";
 import { PaletteButton } from "./PaletteButton";
+import { NavLink } from "./NavLink";
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border-subtle bg-bg-primary/80 backdrop-blur-md">
-      <div className="container mx-auto max-w-5xl px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="font-semibold tracking-wide text-text-primary text-sm">
-          MAXIME
+    <header className="sticky top-0 z-50 w-full border-b border-border-subtle bg-bg-primary/70 backdrop-blur-md">
+      <div className="container mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+        <Link
+          href="/"
+          className="group flex items-center gap-2.5 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+        >
+          {/* Registration mark as the logotype — same language as the plates */}
+          <span
+            aria-hidden="true"
+            className="h-2 w-2 border-l border-t border-accent transition-all duration-500 group-hover:h-2.5 group-hover:w-2.5"
+          />
+          <span className="text-sm font-semibold tracking-[0.08em] text-text-primary">
+            {SITE.name.toUpperCase()}
+          </span>
         </Link>
-        
-        <nav className="hidden md:flex gap-6 text-sm font-medium text-text-secondary">
+
+        <nav
+          aria-label="Main"
+          className="hidden items-center gap-8 md:flex"
+        >
           {MAIN_NAV.map((item) => (
-            <Link key={item.href} href={item.href} className="hover:text-text-primary transition-colors">
-              {item.label}
-            </Link>
+            <NavLink key={item.href} href={item.href} label={item.label} />
           ))}
+          <NavLink href="/cyber" label="Cyber" />
         </nav>
-        
-        <div className="hidden md:flex items-center gap-3">
+
+        <div className="hidden items-center gap-4 md:flex">
           <PaletteButton />
-          <Link 
-            href="/contact" 
-            className="text-sm font-medium text-text-primary bg-surface border border-border-subtle hover:border-border-hover px-4 py-2 rounded-md transition-all"
+          <Link
+            href="/contact"
+            className="group/cta flex items-center gap-3 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
-            Contact
+            <span className="title-block text-text-primary">Contact</span>
+            <span
+              aria-hidden="true"
+              className="h-px w-5 bg-accent-dim transition-all duration-500 ease-out group-hover/cta:w-9 group-hover/cta:bg-accent"
+            />
           </Link>
         </div>
 

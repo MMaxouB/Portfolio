@@ -17,11 +17,12 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         className={cn(
-          "inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:pointer-events-none disabled:opacity-50",
+          "group/btn relative inline-flex items-center justify-center rounded-control font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:pointer-events-none disabled:opacity-50",
           {
-            "bg-accent text-white hover:bg-accent/90": variant === "primary",
+            // Primary is ink-on-paper inverted, not a coloured fill
+            "bg-text-primary text-bg-primary hover:bg-white": variant === "primary",
             "bg-surface text-text-primary hover:bg-surface-hover": variant === "secondary",
-            "border border-border-subtle bg-transparent hover:bg-surface hover:text-text-primary text-text-secondary": variant === "outline",
+            "border border-border-subtle bg-transparent text-text-secondary hover:border-accent-dim hover:text-text-primary": variant === "outline",
             "hover:bg-surface hover:text-text-primary text-text-secondary": variant === "ghost",
             "h-9 px-4 py-2 text-sm": size === "sm",
             "h-10 px-6 py-2 text-sm": size === "md",

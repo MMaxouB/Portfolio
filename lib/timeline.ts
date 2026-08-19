@@ -86,16 +86,22 @@ export const AREA_LABELS: Record<TimelineEvent["area"], string> = {
   learning: "Learning",
 };
 
-export const AREA_COLORS: Record<TimelineEvent["area"], string> = {
+/**
+ * §1.2 forbids a rainbow system, so areas are not distinguished by hue. They
+ * are distinguished by mark: a filled square, a hollow square, a rule, a dot —
+ * all drawn in the one ink colour. Legible in greyscale, and it keeps the
+ * palette to a single family.
+ */
+export const AREA_MARKS: Record<TimelineEvent["area"], string> = {
   software: "bg-accent",
-  security: "bg-emerald-500",
-  ai: "bg-violet-500",
-  learning: "bg-text-muted",
+  security: "border border-accent bg-transparent",
+  ai: "bg-accent-dim",
+  learning: "border border-border-hover bg-transparent",
 };
 
 export const AREA_TEXT_COLORS: Record<TimelineEvent["area"], string> = {
   software: "text-accent",
-  security: "text-emerald-400",
-  ai: "text-violet-400",
+  security: "text-accent",
+  ai: "text-text-secondary",
   learning: "text-text-muted",
 };

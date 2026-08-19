@@ -2,8 +2,10 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { getSecurityProjects } from "@/lib/projects";
 import { CTF_ENTRIES, SECURITY_AREAS } from "@/lib/cyber";
-import { Badge } from "@/components/ui/Badge";
-import { ArrowUpRight, ShieldCheck } from "lucide-react";
+import { Plate } from "@/components/ui/Plate";
+import { Reveal } from "@/components/ui/Reveal";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ProjectFigure } from "@/components/projects/visuals/figures";
 
 export const metadata: Metadata = {
   title: "Cyber / Lab",
@@ -11,166 +13,146 @@ export const metadata: Metadata = {
     "Security projects, penetration testing, CTF activity and research — a secondary but serious specialisation.",
 };
 
+/**
+ * No green, no glyphs, no terminal-as-identity (§0.3). The page uses the same
+ * ink and the same title blocks as the rest of the site, because security here
+ * is one chapter of an engineering document, not a different website.
+ */
 export default function CyberPage() {
   const securityProjects = getSecurityProjects();
 
   return (
-    <div className="min-h-screen py-24">
-      <div className="container mx-auto max-w-5xl px-6">
+    <div className="container mx-auto min-h-screen max-w-6xl px-6 py-28">
+      <SectionHeading
+        as="h1"
+        index="04"
+        label="Cyber / Lab"
+        title="Security as a discipline."
+        annotation="Specialisation, not identity"
+        description="Security is a specialisation within a broader software engineering identity — not the other way around. This section documents real engagement work, tooling and continuous practice."
+        className="mb-24 max-w-3xl"
+      />
 
-        {/* ── Header ── */}
-        <div className="mb-16 max-w-2xl">
-          <span className="text-xs font-mono font-semibold tracking-[0.2em] text-emerald-400 uppercase mb-4 block">
-            SECURITY
-          </span>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-text-primary mb-6">
-            Cyber / Lab
-          </h1>
-          <p className="text-text-secondary leading-relaxed">
-            Security is a specialisation within a broader software engineering
-            identity — not the other way around. This section documents real
-            engagement work, tooling and continuous practice.
-          </p>
-        </div>
-
-        {/* ── Security projects (reused from project system) ── */}
-        <section className="mb-20" aria-labelledby="projects-heading">
-          <h2
-            id="projects-heading"
-            className="text-xs font-semibold text-text-muted uppercase tracking-[0.15em] mb-8"
-          >
+      {/* Projects */}
+      <section className="mb-24" aria-labelledby="cyber-projects">
+        <div className="mb-10 flex items-center gap-4">
+          <span className="title-block text-accent tabular-nums">01</span>
+          <h2 id="cyber-projects" className="title-block">
             Projects
           </h2>
-          <div className="flex flex-col gap-4">
-            {securityProjects.map((project) => {
-              const isNDA = project.type === "nda";
-              return (
-                <Link
-                  key={project.slug}
-                  href={`/projects/${project.slug}`}
-                  className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-xl border border-border-subtle bg-surface hover:border-border-hover hover:bg-surface-hover transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                >
-                  <div className="flex flex-col gap-2">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <Badge
-                        variant={isNDA ? "accent" : "default"}
-                        className="text-[10px]"
-                      >
-                        {project.type.toUpperCase()}
-                      </Badge>
-                      {project.category.map((cat) => (
-                        <Badge
-                          key={cat}
-                          variant="outline"
-                          className="text-[10px] text-text-muted border-border-subtle/50"
-                        >
-                          {cat}
-                        </Badge>
-                      ))}
-                      <span className="text-xs font-mono text-text-muted ml-auto sm:ml-0">
-                        {project.year}
-                      </span>
-                    </div>
-                    <span className="text-sm font-semibold text-text-primary">
-                      {project.title}
-                    </span>
-                    <span className="text-sm text-text-secondary leading-relaxed">
-                      {project.shortDescription}
-                    </span>
-                  </div>
-                  <ArrowUpRight
-                    size={16}
-                    className="shrink-0 text-text-muted opacity-0 -translate-x-1 translate-y-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 sm:self-center"
-                  />
-                </Link>
-              );
-            })}
-          </div>
-        </section>
+          <span className="h-px flex-1 bg-border-subtle" aria-hidden="true" />
+          <span className="title-block tabular-nums">
+            {String(securityProjects.length).padStart(2, "0")}
+          </span>
+        </div>
 
-        {/* ── Knowledge Areas ── */}
-        <section className="mb-20" aria-labelledby="areas-heading">
-          <h2
-            id="areas-heading"
-            className="text-xs font-semibold text-text-muted uppercase tracking-[0.15em] mb-8"
-          >
-            Knowledge Areas
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {SECURITY_AREAS.map((area) => (
-              <div
-                key={area.title}
-                className="p-6 rounded-xl border border-border-subtle bg-surface flex flex-col gap-4"
+        <div className="grid gap-6 md:grid-cols-2">
+          {securityProjects.map((project, i) => (
+            <Reveal key={project.slug} delay={i * 0.06}>
+              <Link
+                href={`/projects/${project.slug}`}
+                className="group block h-full rounded-plate focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary"
               >
-                <div className="flex items-start gap-3">
-                  <ShieldCheck
-                    size={16}
-                    className="text-emerald-400 shrink-0 mt-0.5"
-                  />
-                  <h3 className="text-sm font-semibold text-text-primary leading-snug">
+                <Plate interactive index={String(i + 1).padStart(2, "0")} className="flex h-full flex-col">
+                  <div className="relative border-b border-border-subtle bg-bg-primary/60 p-4">
+                    <div
+                      aria-hidden="true"
+                      className="paper-rules absolute inset-0 opacity-60 [mask-image:radial-gradient(ellipse_70%_70%_at_50%_50%,#000,transparent)]"
+                    />
+                    <ProjectFigure slug={project.slug} className="relative max-h-[170px] w-full" />
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-6">
+                    <div className="mb-4 flex items-center gap-3">
+                      <span className="title-block text-accent">
+                        {project.type.replace("-", " ")}
+                      </span>
+                      <span className="h-px flex-1 bg-border-subtle" aria-hidden="true" />
+                      <span className="title-block tabular-nums">{project.year}</span>
+                    </div>
+                    <h3 className="text-lg font-semibold text-text-primary">
+                      {project.title}
+                    </h3>
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-text-secondary">
+                      {project.shortDescription}
+                    </p>
+                  </div>
+                </Plate>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* Knowledge areas — a register, not a card wall */}
+      <section className="mb-24" aria-labelledby="cyber-areas">
+        <div className="mb-10 flex items-center gap-4">
+          <span className="title-block text-accent tabular-nums">02</span>
+          <h2 id="cyber-areas" className="title-block">
+            Knowledge areas
+          </h2>
+          <span className="h-px flex-1 bg-border-subtle" aria-hidden="true" />
+          <span className="title-block tabular-nums">
+            {String(SECURITY_AREAS.length).padStart(2, "0")}
+          </span>
+        </div>
+
+        <div className="flex flex-col">
+          {SECURITY_AREAS.map((area, i) => (
+            <Reveal key={area.title} delay={i * 0.05}>
+              <div className="grid gap-4 border-b border-border-subtle py-7 first:border-t md:grid-cols-[1fr_1.4fr] md:gap-10">
+                <div className="flex items-baseline gap-4">
+                  <span className="title-block shrink-0 tabular-nums text-accent">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="text-base font-semibold leading-snug text-text-primary">
                     {area.title}
                   </h3>
                 </div>
-                <p className="text-sm text-text-secondary leading-relaxed">
-                  {area.description}
-                </p>
-                <div className="flex flex-wrap gap-1.5 mt-auto pt-2">
-                  {area.topics.map((topic) => (
-                    <span
-                      key={topic}
-                      className="text-[11px] font-mono text-text-muted border border-border-subtle px-2 py-0.5 rounded"
-                    >
-                      {topic}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ── CTF & Practice ── */}
-        <section aria-labelledby="ctf-heading">
-          <h2
-            id="ctf-heading"
-            className="text-xs font-semibold text-text-muted uppercase tracking-[0.15em] mb-8"
-          >
-            CTF & Continuous Practice
-          </h2>
-          <div className="flex flex-col gap-4">
-            {CTF_ENTRIES.map((entry) => (
-              <div
-                key={entry.name}
-                className="flex flex-col sm:flex-row sm:items-start gap-4 p-5 rounded-xl border border-border-subtle bg-surface"
-              >
-                <div className="shrink-0 min-w-[120px]">
-                  <span className="text-sm font-semibold text-text-primary block">
-                    {entry.name}
-                  </span>
-                  <span className="text-xs font-mono text-text-muted">
-                    {entry.year}
-                  </span>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <Badge variant="outline" className="text-[10px] text-text-muted border-border-subtle/50 self-start">
-                    {entry.category}
-                  </Badge>
-                  <p className="text-sm text-text-secondary leading-relaxed">
-                    {entry.notes}
+                <div>
+                  <p className="text-sm leading-relaxed text-text-secondary">
+                    {area.description}
+                  </p>
+                  <p className="title-block mt-3 normal-case tracking-[0.08em]">
+                    {area.topics.join(" · ")}
                   </p>
                 </div>
               </div>
-            ))}
-          </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
 
-          {/* Honest closing note */}
-          <p className="mt-10 text-sm text-text-muted leading-relaxed max-w-xl border-l-2 border-border-subtle pl-4">
-            Security is an ongoing practice, not a completed credential. These entries
-            reflect real activity — no fabricated results or inflated rankings.
-          </p>
-        </section>
+      {/* Practice */}
+      <section aria-labelledby="cyber-practice">
+        <div className="mb-10 flex items-center gap-4">
+          <span className="title-block text-accent tabular-nums">03</span>
+          <h2 id="cyber-practice" className="title-block">
+            Continuous practice
+          </h2>
+          <span className="h-px flex-1 bg-border-subtle" aria-hidden="true" />
+        </div>
 
-      </div>
+        <div className="grid gap-6 md:grid-cols-2">
+          {CTF_ENTRIES.map((entry, i) => (
+            <Reveal key={entry.name} delay={i * 0.06}>
+              <Plate className="flex h-full flex-col p-6">
+                <div className="flex items-center gap-3">
+                  <span className="title-block text-accent">{entry.category}</span>
+                  <span className="h-px flex-1 bg-border-subtle" aria-hidden="true" />
+                  <span className="title-block tabular-nums">{entry.year}</span>
+                </div>
+                <h3 className="mt-5 text-base font-semibold text-text-primary">
+                  {entry.name}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+                  {entry.notes}
+                </p>
+              </Plate>
+            </Reveal>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

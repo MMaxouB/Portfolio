@@ -1,64 +1,88 @@
 "use client";
 
 import Link from "next/link";
-import { motion, Variants } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { Button } from "@/components/ui/Button";
 import { HeroVisual } from "./HeroVisual";
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { type: "spring", stiffness: 300, damping: 24 },
-  },
-};
+/**
+ * Entrance (§4.4) reworked: nothing translates upward. The rule extends, the
+ * headline is uncovered line by line by a moving mask, and the rest fades in
+ * place. It reads as a drawing being made rather than a page assembling itself.
+ */
+const HEADLINE = ["Building software", "that matters."];
 
 export function Hero() {
+  const shouldReduceMotion = useReducedMotion();
+
+  const fade = (delay: number) =>
+    shouldReduceMotion
+      ? {}
+      : {
+          initial: { opacity: 0 },
+          animate: { opacity: 1 },
+          transition: { duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] as const },
+        };
+
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden py-20 px-6">
+    <section className="relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden px-6 py-24">
       <HeroVisual />
-      
-      <div className="container mx-auto max-w-5xl relative z-10">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="max-w-3xl flex flex-col items-start gap-6"
-        >
-          <motion.div variants={itemVariants}>
-            <span className="text-xs font-mono font-semibold tracking-[0.2em] text-accent uppercase bg-accent/10 px-3 py-1 rounded-full border border-accent/20">
-              Software / Engineering / Security
-            </span>
-          </motion.div>
-          
-          <motion.h1 
-            variants={itemVariants}
-            className="text-5xl md:text-7xl font-bold tracking-tighter text-text-primary leading-[1.1]"
+
+      <div className="container relative z-10 mx-auto max-w-6xl">
+        <div className="flex max-w-3xl flex-col items-start">
+          {/* Title block strip */}
+          <div className="flex w-full max-w-lg items-center gap-4">
+            <motion.span className="title-block text-accent" {...fade(0.1)}>
+              00
+            </motion.span>
+            <motion.span className="title-block" {...fade(0.15)}>
+              Software · Engineering · Security
+            </motion.span>
+            <motion.span
+              aria-hidden="true"
+              className="h-px flex-1 origin-left bg-border-subtle"
+              initial={shouldReduceMotion ? false : { scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            />
+          </div>
+
+          {/* Headline — uncovered line by line */}
+          <h1 className="mt-9 text-[clamp(2.9rem,8.5vw,5.5rem)] font-bold leading-[0.94] tracking-[-0.04em] text-text-primary">
+            {HEADLINE.map((line, i) => (
+              <span key={line} className="block overflow-hidden">
+                <motion.span
+                  className="block"
+                  initial={
+                    shouldReduceMotion
+                      ? false
+                      : { clipPath: "inset(0 100% 0 0)", opacity: 0.3 }
+                  }
+                  animate={{ clipPath: "inset(0 0% 0 0)", opacity: 1 }}
+                  transition={{
+                    duration: 0.78,
+                    delay: 0.3 + i * 0.13,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                >
+                  {line}
+                </motion.span>
+              </span>
+            ))}
+          </h1>
+
+          <motion.p
+            className="mt-8 max-w-xl text-lg leading-relaxed text-text-secondary"
+            {...fade(0.66)}
           >
-            Building software<br />
-            that matters.
-          </motion.h1>
-          
-          <motion.p 
-            variants={itemVariants}
-            className="text-lg md:text-xl text-text-secondary max-w-2xl leading-relaxed"
-          >
-            I am a software engineer specializing in backend architecture, AI systems, and robust web applications, with a strong foundation in cybersecurity.
+            Backend architecture, automation pipelines and AI systems — designed
+            by someone who thinks about how they break before someone else does.
           </motion.p>
-          
-          <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 pt-4">
+
+          <motion.div
+            className="mt-11 flex flex-wrap items-center gap-3"
+            {...fade(0.8)}
+          >
             <Link href="/projects">
               <Button size="lg" variant="primary">
                 Explore projects
@@ -70,7 +94,7 @@ export function Hero() {
               </Button>
             </Link>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

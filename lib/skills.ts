@@ -173,3 +173,31 @@ export function getSkillsByCategory(category: SkillCategory): Skill[] {
 export function getSkillBySlug(slug: string): Skill | undefined {
   return SKILLS.find((s) => s.slug === slug);
 }
+
+/**
+ * Homepage shows 6–8 skills, not the whole list (§8.4). Highest scored first,
+ * capped to one per category so the preview reads as a range, not a ranking.
+ */
+export function getHeadlineSkills(limit = 8): Skill[] {
+  const byScore = [...SKILLS].sort((a, b) => b.score - a.score);
+  const picked: Skill[] = [];
+  const seen = new Set<SkillCategory>();
+
+  // One pass to cover every category, then fill up with the next best.
+  for (const skill of byScore) {
+    if (seen.has(skill.category)) continue;
+    seen.add(skill.category);
+    picked.push(skill);
+  }
+  for (const skill of byScore) {
+    if (picked.length >= limit) break;
+    if (!picked.includes(skill)) picked.push(skill);
+  }
+
+  return picked.slice(0, limit).sort((a, b) => b.score - a.score);
+}
+
+/** Projects a skill is evidenced by — powers the §8.6 filter. */
+export function getSkillsForProject(slug: string): Skill[] {
+  return SKILLS.filter((skill) => skill.projectSlugs.includes(slug));
+}
