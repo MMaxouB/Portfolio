@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { MAIN_NAV } from "@/lib/navigation";
+import { MobileMenu } from "./MobileMenu";
+import { PaletteButton } from "./PaletteButton";
 
 export function Navbar() {
   return (
@@ -7,13 +10,17 @@ export function Navbar() {
         <Link href="/" className="font-semibold tracking-wide text-text-primary text-sm">
           MAXIME
         </Link>
+        
         <nav className="hidden md:flex gap-6 text-sm font-medium text-text-secondary">
-          <Link href="/projects" className="hover:text-text-primary transition-colors">Projects</Link>
-          <Link href="/expertise" className="hover:text-text-primary transition-colors">Expertise</Link>
-          <Link href="/timeline" className="hover:text-text-primary transition-colors">Timeline</Link>
-          <Link href="/about" className="hover:text-text-primary transition-colors">About</Link>
+          {MAIN_NAV.map((item) => (
+            <Link key={item.href} href={item.href} className="hover:text-text-primary transition-colors">
+              {item.label}
+            </Link>
+          ))}
         </nav>
-        <div className="flex items-center gap-4">
+        
+        <div className="hidden md:flex items-center gap-3">
+          <PaletteButton />
           <Link 
             href="/contact" 
             className="text-sm font-medium text-text-primary bg-surface border border-border-subtle hover:border-border-hover px-4 py-2 rounded-md transition-all"
@@ -21,6 +28,8 @@ export function Navbar() {
             Contact
           </Link>
         </div>
+
+        <MobileMenu />
       </div>
     </header>
   );
