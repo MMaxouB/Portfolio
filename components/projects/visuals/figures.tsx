@@ -288,6 +288,117 @@ export function RedactedMapFigure({ className }: FigureProps) {
 }
 
 /* --------------------------------------------------------------------------
+   CTF & Penetration Testing — privilege escalation pyramid
+   -------------------------------------------------------------------------- */
+export function PrivilegeEscalationFigure({ className }: FigureProps) {
+  return (
+    <Figure className={className}>
+      {/* Target system at top */}
+      <rect x="124" y="20" width="72" height="18" rx="2" className="fill-accent stroke-accent-dim" strokeWidth="1" />
+      <text x="160" y="32" textAnchor="middle" style={label} className="fill-text-primary">
+        ROOT
+      </text>
+
+      {/* Arrows down from root */}
+      <line x1="160" y1="38" x2="160" y2="48" className="stroke-accent-dim" strokeWidth="1" />
+
+      {/* User privilege level */}
+      <rect x="108" y="48" width="104" height="20" rx="2" className="fill-surface-hover stroke-accent-dim" strokeWidth="1" />
+      <text x="160" y="62" textAnchor="middle" style={label} className="fill-accent">
+        ADMIN ACCESS
+      </text>
+
+      {/* Lateral movement arrows */}
+      <line x1="108" y1="58" x2="80" y2="58" className="stroke-border-hover" strokeWidth="1" />
+      <line x1="212" y1="58" x2="240" y2="58" className="stroke-border-hover" strokeWidth="1" />
+
+      {/* Exploitation vectors */}
+      <rect x="52" y="48" width="48" height="20" rx="2" className="fill-bg-primary stroke-border-hover" strokeWidth="1" />
+      <text x="76" y="62" textAnchor="middle" style={label} className="fill-text-muted">
+        VULN 1
+      </text>
+
+      <rect x="240" y="48" width="48" height="20" rx="2" className="fill-bg-primary stroke-border-hover" strokeWidth="1" />
+      <text x="264" y="62" textAnchor="middle" style={label} className="fill-text-muted">
+        VULN 2
+      </text>
+
+      {/* Middle layer — service escalation */}
+      <rect x="100" y="90" width="120" height="18" rx="2" className="fill-bg-primary stroke-border-subtle" strokeWidth="1" />
+      <text x="160" y="102" textAnchor="middle" style={label} className="fill-text-secondary">
+        SERVICE COMPROMISE
+      </text>
+
+      {/* Arrows down */}
+      <line x1="160" y1="108" x2="160" y2="125" className="stroke-border-hover" strokeWidth="1" />
+
+      {/* Initial access */}
+      <rect x="120" y="125" width="80" height="18" rx="2" className="fill-bg-primary stroke-border-hover" strokeWidth="1" />
+      <text x="160" y="137" textAnchor="middle" style={label} className="fill-text-secondary">
+        INITIAL ACCESS
+      </text>
+
+      {/* Attack chain label */}
+      <text x="24" y="162" style={label} className="fill-text-muted">
+        ATTACK CHAIN
+      </text>
+      <line x1="24" y1="168" x2="80" y2="168" className="stroke-border-hover" strokeWidth="1" />
+    </Figure>
+  );
+}
+
+/* --------------------------------------------------------------------------
+   Templates Web — the three-layer architecture: structure × direction × palette
+   -------------------------------------------------------------------------- */
+export function TemplateLayersFigure({ className }: FigureProps) {
+  return (
+    <Figure className={className}>
+      {/* Title */}
+      <text x="160" y="20" textAnchor="middle" style={label} className="fill-text-muted">
+        3-LAYER SYSTEM
+      </text>
+
+      {/* Structure layer (bottom) */}
+      <rect x="30" y="45" width="260" height="40" rx="2" className="fill-bg-primary stroke-border-hover" strokeWidth="1" />
+      <text x="160" y="62" textAnchor="middle" style={label} className="fill-accent">
+        STRUCTURE (Composition)
+      </text>
+      <text x="160" y="76" textAnchor="middle" style={{ ...label, fontSize: 5.5 }} className="fill-text-muted">
+        145 architectures • Navigation • Density • Interaction
+      </text>
+
+      {/* Multiply symbol */}
+      <text x="160" y="100" textAnchor="middle" style={{ ...label, fontSize: 10 }} className="fill-border-subtle">
+        ×
+      </text>
+
+      {/* Direction layer (middle) */}
+      <rect x="30" y="110" width="260" height="40" rx="2" className="fill-bg-primary stroke-accent-dim" strokeWidth="1" />
+      <text x="160" y="127" textAnchor="middle" style={label} className="fill-accent">
+        DIRECTION (Artistic)
+      </text>
+      <text x="160" y="141" textAnchor="middle" style={{ ...label, fontSize: 5.5 }} className="fill-text-muted">
+        Typography • Geometry • Surface • Motion
+      </text>
+
+      {/* Multiply symbol */}
+      <text x="160" y="165" textAnchor="middle" style={{ ...label, fontSize: 10 }} className="fill-border-subtle">
+        ×
+      </text>
+
+      {/* Palette layer (top) */}
+      <rect x="30" y="175" width="260" height="40" rx="2" className="fill-bg-primary stroke-border-hover" strokeWidth="1" />
+      <text x="160" y="192" textAnchor="middle" style={label} className="fill-accent">
+        PALETTE (Colors Only)
+      </text>
+      <text x="160" y="206" textAnchor="middle" style={{ ...label, fontSize: 5.5 }} className="fill-text-muted">
+        16 semantic color roles
+      </text>
+    </Figure>
+  );
+}
+
+/* --------------------------------------------------------------------------
    Vulnerability Scanner — a scan readout, the artefact the tool produces
    -------------------------------------------------------------------------- */
 export function ScanReadoutFigure({ className }: FigureProps) {
@@ -341,8 +452,8 @@ export const PROJECT_FIGURES: Record<string, (props: FigureProps) => React.React
   "ai-video-editor": VideoTracksFigure,
   "agent-orchestrator": DispatchFanFigure,
   "obsidian-system": PipelineFigure,
-  "enterprise-security-audit": RedactedMapFigure,
-  "cyber-tool": ScanReadoutFigure,
+  "ctf-penetration-labs": PrivilegeEscalationFigure,
+  "templates-web": TemplateLayersFigure,
 };
 
 export function ProjectFigure({ slug, className }: { slug: string; className?: string }) {
