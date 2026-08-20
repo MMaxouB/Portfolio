@@ -30,7 +30,6 @@ export const TIMELINE: TimelineEvent[] = [
     description:
       "Built a lightweight, distributed port scanner to learn Go concurrency and network basics.",
     area: "security",
-    projectSlugs: ["cyber-tool"],
     technologies: ["Go", "Bash"],
   },
   {
@@ -39,6 +38,7 @@ export const TIMELINE: TimelineEvent[] = [
     description:
       "Took part in several Capture the Flag events. Learned more about the OWASP Top 10, authentication flaws and privilege escalation.",
     area: "security",
+    projectSlugs: ["ctf-penetration-labs"],
     technologies: ["Burp Suite", "Nmap", "Linux"],
   },
   {
@@ -52,11 +52,11 @@ export const TIMELINE: TimelineEvent[] = [
   },
   {
     year: "2025",
-    title: "First professional security engagement",
+    title: "Network security & penetration testing",
     description:
-      "Carried out an enterprise network penetration test under NDA: external perimeter testing, Active Directory enumeration, and advice on fixes.",
+      "Participated in HackTheBox and TryHackMe labs. Learned to enumerate Active Directory, exploit web vulnerabilities and escalate privileges.",
     area: "security",
-    projectSlugs: ["enterprise-security-audit"],
+    projectSlugs: ["ctf-penetration-labs"],
     technologies: ["Metasploit", "Active Directory", "Nmap"],
   },
   {

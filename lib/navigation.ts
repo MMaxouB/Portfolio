@@ -22,7 +22,7 @@ export const ALL_ROUTES: string[] = [
 
 export const SOCIAL_NAV: NavItem[] = [
   { label: "GitHub", href: SITE.links.github },
-  { label: "LinkedIn", href: SITE.links.linkedin },
+  { label: "Discord", href: SITE.links.discord },
   { label: "Email", href: `mailto:${SITE.email}` },
 ];
 

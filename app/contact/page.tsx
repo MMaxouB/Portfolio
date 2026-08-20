@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { Mail } from "lucide-react";
-import { GitHubIcon, LinkedInIcon } from "@/components/ui/BrandIcons";
+import { GitHubIcon, DiscordIcon } from "@/components/ui/BrandIcons";
 import { SITE } from "@/lib/site";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
@@ -32,11 +32,11 @@ const CHANNELS = [
     external: true,
   },
   {
-    label: "LinkedIn",
-    value: SITE.links.linkedin.replace(/^https?:\/\//, ""),
-    href: SITE.links.linkedin,
-    icon: LinkedInIcon,
-    note: "Professional background",
+    label: "Discord",
+    value: "mmaxoub_87590",
+    href: SITE.links.discord,
+    icon: DiscordIcon,
+    note: "Community & gaming",
     external: true,
   },
 ] as const;

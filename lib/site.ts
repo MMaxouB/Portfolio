@@ -21,8 +21,8 @@ export const SITE = {
   links: {
     /** TODO: remplacer par le vrai profil */
     github: "https://github.com/MMaxouB",
-    /** TODO: remplacer par le vrai profil */
-    linkedin: "https://linkedin.com/in/example",
+    /** Discord username */
+    discord: "https://discord.com/users/mmaxoub_87590",
   },
 } as const;
 

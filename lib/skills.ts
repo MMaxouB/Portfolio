@@ -21,7 +21,7 @@ export const SKILLS: Skill[] = [
     score: 88,
     levelLabel: "Advanced",
     description: "My main language for scripting and backend work. I use it for API servers, automation pipelines and AI integrations.",
-    projectSlugs: ["agent-orchestrator", "enterprise-security-audit"],
+    projectSlugs: ["ai-video-editor", "agent-orchestrator", "ctf-penetration-labs"],
   },
   {
     slug: "typescript",
@@ -39,7 +39,7 @@ export const SKILLS: Skill[] = [
     score: 80,
     levelLabel: "Advanced",
     description: "A solid base under my TypeScript work. Comfortable with runtime quirks and async patterns.",
-    projectSlugs: ["obsidian-system"],
+    projectSlugs: ["templates-web", "ctf-penetration-labs", "obsidian-system"],
   },
   {
     slug: "html-css",
@@ -48,7 +48,7 @@ export const SKILLS: Skill[] = [
     score: 78,
     levelLabel: "Proficient",
     description: "Semantic markup and modern CSS including Flexbox, Grid, and CSS custom properties.",
-    projectSlugs: [],
+    projectSlugs: ["templtes-web"],
   },
 
   // Engineering
@@ -59,7 +59,7 @@ export const SKILLS: Skill[] = [
     score: 84,
     levelLabel: "Advanced",
     description: "REST API design, async task queues, database modelling and service architecture.",
-    projectSlugs: ["ai-video-editor", "agent-orchestrator"],
+    projectSlugs: ["ai-video-editor", "agent-orchestrator", "obsidian-system"],
   },
   {
     slug: "software-architecture",
@@ -68,7 +68,7 @@ export const SKILLS: Skill[] = [
     score: 76,
     levelLabel: "Proficient",
     description: "I design systems with clear boundaries, and think carefully about data flow and failure modes.",
-    projectSlugs: ["ai-video-editor", "agent-orchestrator"],
+    projectSlugs: ["ai-video-editor", "agent-orchestrator", "obsidian-system"],
   },
   {
     slug: "automation",
@@ -77,7 +77,7 @@ export const SKILLS: Skill[] = [
     score: 82,
     levelLabel: "Advanced",
     description: "Scripted workflows, CI pipelines, browser automation, and custom tooling.",
-    projectSlugs: ["obsidian-system", "agent-orchestrator"],
+    projectSlugs: ["obsidian-system", "agent-orchestrator", "ctf-penetration-labs"],
   },
   {
     slug: "git",
@@ -86,7 +86,7 @@ export const SKILLS: Skill[] = [
     score: 85,
     levelLabel: "Advanced",
     description: "Branching strategies, clean commit history, code review and collaborative workflows.",
-    projectSlugs: [],
+    projectSlugs: ["ai-video-editor", "agent-orchestrator", "obsidian-system", "templates-web"],
   },
 
   // AI / Systems
@@ -123,28 +123,28 @@ export const SKILLS: Skill[] = [
     slug: "web-security",
     name: "Web Security",
     category: "security",
-    score: 72,
-    levelLabel: "Proficient",
+    score: 80,
+    levelLabel: "Advanced",
     description: "OWASP Top 10, authentication hardening, session management, header policies.",
-    projectSlugs: ["enterprise-security-audit"],
+    projectSlugs: ["ctf-penetration-labs"],
   },
   {
     slug: "pentesting",
     name: "Penetration Testing",
     category: "security",
-    score: 68,
-    levelLabel: "Developing",
+    score: 74,
+    levelLabel: "Proficient",
     description: "Active Directory enumeration and web app testing, using methods learned from CTFs.",
-    projectSlugs: ["enterprise-security-audit", "cyber-tool"],
+    projectSlugs: ["ctf-penetration-labs"],
   },
   {
     slug: "linux",
     name: "Linux",
     category: "security",
-    score: 80,
+    score: 83,
     levelLabel: "Advanced",
     description: "My daily operating system. Comfortable with the command line, process management, permissions and shell scripting.",
-    projectSlugs: ["enterprise-security-audit", "cyber-tool"],
+    projectSlugs: ["ctf-penetration-labs", "obsidian-system"],
   },
   {
     slug: "osint",
@@ -153,7 +153,7 @@ export const SKILLS: Skill[] = [
     score: 65,
     levelLabel: "Developing",
     description: "Passive reconnaissance and footprinting, using open-source intelligence (OSINT).",
-    projectSlugs: ["enterprise-security-audit"],
+    projectSlugs: ["ctf-penetration-labs"],
   },
 ];
 
